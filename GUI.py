@@ -31,7 +31,7 @@ top_panel = tk.Frame(root, height=600, width=1200)
 top_panel.config(bg='#0096c7')
 top_panel.pack(expand=True, side='top', fill='both', padx=5, pady=5)
 
-    # ------------------------------START: GPR PANEL ---------------------------#
+# ------------------------------START: GPR PANEL ---------------------------#
 
 gpr_panel = ttk.Frame(top_panel, height=50, width=33)
 gpr_panel.config(style='new.TFrame')
@@ -61,7 +61,7 @@ gpr_panel.columnconfigure(14, weight=1)
 gpr_panel.columnconfigure(15, weight=1)
 gpr_panel.columnconfigure(16, weight=1)
 gpr_panel.columnconfigure(17, weight=2)
-        # -----------------------START: GPR LABELS ----------------------#
+# -----------------------START: GPR LABELS ----------------------#
 gpr0_label = ttk.Label(gpr_panel, text="GPR 0", anchor='c', width=5)
 gpr0_label.grid(column=0, row=0, padx=5, pady=5, ipadx=2)
 gpr1_label = ttk.Label(gpr_panel, text="GPR 1", anchor='c', width=5)
@@ -70,9 +70,9 @@ gpr2_label = ttk.Label(gpr_panel, text="GPR 2", anchor='c', width=5)
 gpr2_label.grid(column=0, row=2, padx=5, pady=5, ipadx=2)
 gpr3_label = ttk.Label(gpr_panel, text="GPR 3", anchor='c', width=5)
 gpr3_label.grid(column=0, row=3, padx=5, pady=5, ipadx=2)
-        # -----------------------END: GPR LABELS ------------------------#
+# -----------------------END: GPR LABELS ------------------------#
 
-        # -----------------------START: GPR LABELS (LIGHTS) ------------------------#
+# -----------------------START: GPR LABELS (LIGHTS) ------------------------#
 gpr0_label1 = tk.Label(gpr_panel, text='  ', width=2, bg='black')
 gpr0_label1.grid(column=1, row=0, sticky=tk.E, padx=2, pady=5)
 gpr0_label2 = tk.Label(gpr_panel, text='  ', width=2, bg='black')
@@ -206,8 +206,8 @@ gpr3_label16 = tk.Label(gpr_panel, text='  ', width=2, bg='black')
 gpr3_label16.grid(column=16, row=3, sticky=tk.E, padx=2, pady=5)
 
 
-        # -----------------------END: GPR LABELS (LIGHTS) ------------------------#
-        # -----------------------START: GPR LOAD BUTTONS------------------------#
+# -----------------------END: GPR LABELS (LIGHTS) ------------------------#
+# -----------------------START: GPR LOAD BUTTONS------------------------#
 def gpr0_load_callback():
     print("gpr0 load button clicked")
     # do something
@@ -243,11 +243,11 @@ def gpr3_load_callback():
 gpr3_btn = ttk.Button(gpr_panel, text='LD', command=gpr3_load_callback, width=6)
 gpr3_btn.grid(column=17, row=3, padx=5, pady=5)
 
-        # -----------------------END: GPR LOAD BUTTONS--------------------------#
+# -----------------------END: GPR LOAD BUTTONS--------------------------#
 
-    # -----------------------END: GPR PANEL-------------------------------------#
+# -----------------------END: GPR PANEL-------------------------------------#
 
-    # ------------------------------START: IXR PANEL ---------------------------#
+# ------------------------------START: IXR PANEL ---------------------------#
 
 ixr_panel = ttk.Frame(top_panel, height=50, width=33)
 ixr_panel.config(style='new.TFrame')
@@ -276,16 +276,16 @@ ixr_panel.columnconfigure(14, weight=1)
 ixr_panel.columnconfigure(15, weight=1)
 ixr_panel.columnconfigure(16, weight=1)
 ixr_panel.columnconfigure(17, weight=2)
-            # -----------------------START: IXR LABELS ----------------------#
+# -----------------------START: IXR LABELS ----------------------#
 ixr1_label = ttk.Label(ixr_panel, text="IXR 0", anchor='c', width=5)
 ixr1_label.grid(column=0, row=0, padx=5, pady=5, ipadx=2)
 ixr2_label = ttk.Label(ixr_panel, text="IXR 1", anchor='c', width=5)
 ixr2_label.grid(column=0, row=1, padx=5, pady=5, ipadx=2)
 ixr3_label = ttk.Label(ixr_panel, text="IXR 2", anchor='c', width=5)
 ixr3_label.grid(column=0, row=2, padx=5, pady=5, ipadx=2)
-            # -----------------------END: IXR LABELS ------------------------#
+# -----------------------END: IXR LABELS ------------------------#
 
-            # -----------------------START: IXR LABELS (LIGHTS) ------------------------#
+# -----------------------START: IXR LABELS (LIGHTS) ------------------------#
 ixr1_label1 = tk.Label(ixr_panel, text='  ', width=2, bg='black')
 ixr1_label1.grid(column=1, row=0, sticky=tk.E, padx=2, pady=5)
 ixr1_label2 = tk.Label(ixr_panel, text='  ', width=2, bg='black')
@@ -386,9 +386,9 @@ ixr3_label16 = tk.Label(ixr_panel, text='  ', width=2, bg='black')
 ixr3_label16.grid(column=16, row=2, sticky=tk.E, padx=2, pady=5)
 
 
-            # -----------------------END: IXR LABELS (LIGHTS) ----------------------#
+# -----------------------END: IXR LABELS (LIGHTS) ----------------------#
 
-            # -----------------------START: IXR LOAD BUTTONS------------------------#
+# -----------------------START: IXR LOAD BUTTONS------------------------#
 
 def ixr1_load_callback():
     print("ixr1 load button clicked")
@@ -416,18 +416,18 @@ def ixr3_load_callback():
 ixr3_btn = ttk.Button(ixr_panel, text='LD', command=ixr3_load_callback, width=6)
 ixr3_btn.grid(column=17, row=2, padx=5, pady=5)
 
-        # -----------------------END: IXR LOAD BUTTONS--------------------------#
+# -----------------------END: IXR LOAD BUTTONS--------------------------#
 
 
-    # ------------------------------END: IXR PANEL -----------------------------#
+# ------------------------------END: IXR PANEL -----------------------------#
 
 
-    # ------------------------------START: RIGHT PANEL ---------------------------#
+# ------------------------------START: RIGHT PANEL ---------------------------#
 
 right_panel = ttk.Frame(top_panel, height=50, width=33)
 right_panel.config(style='new.TFrame')
 
-right_panel.grid(column=1, row=0, padx=[100, 20], pady=[77,20], sticky=tk.E)
+right_panel.grid(column=1, row=0, padx=[100, 20], pady=[77, 20], sticky=tk.E)
 
 right_panel.rowconfigure(0, weight=1)
 right_panel.rowconfigure(1, weight=1)
@@ -454,7 +454,7 @@ right_panel.columnconfigure(14, weight=1)
 right_panel.columnconfigure(15, weight=1)
 right_panel.columnconfigure(16, weight=1)
 right_panel.columnconfigure(17, weight=2)
-        # -----------------------START: RIGHT LABELS ----------------------#
+# -----------------------START: RIGHT LABELS ----------------------#
 pc_label = ttk.Label(right_panel, text="PC", anchor='c', width=5)
 pc_label.grid(column=3, row=0, padx=5, pady=5, ipadx=2, columnspan=2)
 mar_label = ttk.Label(right_panel, text="MAR", anchor='c', width=5)
@@ -467,9 +467,9 @@ mfr_label = ttk.Label(right_panel, text="MFR", anchor='c', width=5)
 mfr_label.grid(column=11, row=4, padx=5, pady=5, ipadx=2, columnspan=2)
 privileged_label = ttk.Label(right_panel, text="PRIVILEGED", anchor='c')
 privileged_label.grid(column=13, row=5, padx=5, pady=5, ipadx=2, columnspan=3)
-        # -----------------------END: RIGHT LABELS ------------------------#
+# -----------------------END: RIGHT LABELS ------------------------#
 
-        # -----------------------START: RIGHT LABELS (LIGHTS) ------------------------#
+# -----------------------START: RIGHT LABELS (LIGHTS) ------------------------#
 pc_label1 = tk.Label(right_panel, text='  ', width=2, bg='black')
 pc_label1.grid(column=5, row=0, sticky=tk.E, padx=2, pady=5)
 pc_label2 = tk.Label(right_panel, text='  ', width=2, bg='black')
@@ -586,7 +586,6 @@ ir_label15.grid(column=15, row=3, sticky=tk.E, padx=2, pady=5)
 ir_label16 = tk.Label(right_panel, text='  ', width=2, bg='black')
 ir_label16.grid(column=16, row=3, sticky=tk.E, padx=2, pady=5)
 
-
 mfr_label1 = tk.Label(right_panel, text='  ', width=2, bg='black')
 mfr_label1.grid(column=13, row=4, sticky=tk.E, padx=2, pady=5)
 mfr_label2 = tk.Label(right_panel, text='  ', width=2, bg='black')
@@ -596,12 +595,13 @@ mfr_label3.grid(column=15, row=4, sticky=tk.E, padx=2, pady=5)
 mfr_label4 = tk.Label(right_panel, text='  ', width=2, bg='black')
 mfr_label4.grid(column=16, row=4, sticky=tk.E, padx=2, pady=5)
 
-
 privileged_label1 = tk.Label(right_panel, text='  ', width=2, bg='black')
 privileged_label1.grid(column=16, row=5, sticky=tk.E, padx=2, pady=5)
-        # -----------------------END: RIGHT LABELS (LIGHTS) ------------------------#
 
-        # -----------------------START: RIGHT LOAD BUTTONS------------------------#
+
+# -----------------------END: RIGHT LABELS (LIGHTS) ------------------------#
+
+# -----------------------START: RIGHT LOAD BUTTONS------------------------#
 def pc_load_callback():
     print("pc load button clicked")
     # do something
@@ -628,17 +628,11 @@ def mbr_load_callback():
 mbr_btn = ttk.Button(right_panel, text='LD', command=mbr_load_callback, width=6)
 mbr_btn.grid(column=17, row=2, padx=5, pady=5)
 
-        # -----------------------END: RIGHT LOAD BUTTONS--------------------------#
+# -----------------------END: RIGHT LOAD BUTTONS--------------------------#
 
-    # -----------------------END: RIGHT PANEL-------------------------------------#
+# -----------------------END: RIGHT PANEL-------------------------------------#
 
 # -----------------------------END TOP PANEL -----------------------------------#
-
-
-
-
-
-
 
 
 # -----------------------------START: BOTTOM PANEL -----------------------------#
@@ -869,6 +863,413 @@ stPlus_btn.grid(column=1, row=1, padx=5, pady=10)
 def load_callback():
     print("load button clicked")
     # do something
+    opcode=op_entry1.get()+op_entry2.get()+op_entry3.get()+op_entry4.get()+op_entry5.get()+op_entry6.get()
+    gpr=gpr_add_entry1.get()+gpr_add_entry2.get()
+    ixr=ixr_add_text1.get()+ixr_add_text2.get()
+    i=i_text1.get()
+    address=add_text1.get()+add_text2.get()+add_text3.get()+add_text4.get()+add_text5.get()
+    instruction=opcode+gpr+ixr+i+address
+    print(instruction)
+
+    if ixr == "00":
+        # Get the value stored in address
+        ea = instruction
+    elif ixr != "00":
+        sumb = int(ixr, 2) + int(instruction, 2)
+        ea = (bin(sumb)[2:]).zfill(16)
+    print(ea)
+
+    #ldr instruction
+
+    if opcode=="000001":
+        if gpr=="00":
+            gpr0_label6.config(bg="yellow")
+            if(ea[8]=="1"):
+                gpr0_label9.config(bg="yellow")
+            if(ea[9]=="1"):
+                gpr0_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr0_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr0_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr0_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr0_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr0_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr0_label16.config(bg="yellow")
+        if gpr=="01":
+            gpr1_label6.config(bg="yellow")
+            if(ea[8]=="1"):
+                gpr1_label9.config(bg="yellow")
+            if(ea[9]=="1"):
+                gpr1_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr1_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr1_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr1_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr1_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr1_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr1_label16.config(bg="yellow")
+        if gpr=="10":
+            gpr2_label6.config(bg="yellow")
+            if(ea[8]=="1"):
+                gpr2_label9.config(bg="yellow")
+            if(ea[9]=="1"):
+                gpr2_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr2_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr2_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr2_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr2_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr2_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr2_label16.config(bg="yellow")
+
+        if gpr=="11":
+            gpr3_label6.config(bg="yellow")
+            if(ea[8]=="1"):
+                gpr3_label9.config(bg="yellow")
+            if(ea[9]=="1"):
+                gpr3_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr3_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr3_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr3_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr3_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr3_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr3_label16.config(bg="yellow")
+
+        # str instruction
+
+    elif opcode == "000010":
+        if gpr == "00":
+            gpr0_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr0_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr0_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr0_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr0_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr0_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr0_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr0_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr0_label16.config(bg="yellow")
+        if gpr == "01":
+            gpr1_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr1_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr1_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr1_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr1_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr1_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr1_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr1_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr1_label16.config(bg="yellow")
+        if gpr == "10":
+            gpr2_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr2_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr2_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr2_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr2_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr2_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr2_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr2_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr2_label16.config(bg="yellow")
+
+        if gpr == "11":
+            gpr3_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr3_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr3_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr3_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr3_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr3_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr3_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr3_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr3_label16.config(bg="yellow")
+
+        # lda instruction
+
+    if opcode == "000011":
+        if gpr == "00":
+            gpr0_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr0_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr0_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr0_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr0_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr0_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr0_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr0_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr0_label16.config(bg="yellow")
+        if gpr == "01":
+            gpr1_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr1_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr1_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr1_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr1_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr1_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr1_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr1_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr1_label16.config(bg="yellow")
+        if gpr == "10":
+            gpr2_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr2_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr2_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr2_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr2_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr2_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr2_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr2_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr2_label16.config(bg="yellow")
+
+        if gpr == "11":
+            gpr3_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr3_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr3_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr3_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr3_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr3_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr3_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr3_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr3_label16.config(bg="yellow")
+
+        # ldx instruction
+
+    if opcode == "101001":
+        if gpr == "00":
+            gpr0_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr0_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr0_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr0_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr0_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr0_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr0_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr0_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr0_label16.config(bg="yellow")
+        if gpr == "01":
+            gpr1_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr1_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr1_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr1_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr1_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr1_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr1_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr1_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr1_label16.config(bg="yellow")
+        if gpr == "10":
+            gpr2_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr2_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr2_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr2_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr2_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr2_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr2_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr2_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr2_label16.config(bg="yellow")
+
+        if gpr == "11":
+            gpr3_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr3_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr3_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr3_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr3_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr3_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr3_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr3_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr3_label16.config(bg="yellow")
+
+        # stx instruction
+
+    if opcode == "101010":
+        if gpr == "00":
+            gpr0_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr0_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr0_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr0_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr0_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr0_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr0_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr0_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr0_label16.config(bg="yellow")
+        if gpr == "01":
+            gpr1_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr1_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr1_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr1_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr1_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr1_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr1_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr1_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr1_label16.config(bg="yellow")
+        if gpr == "10":
+            gpr2_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr2_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr2_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr2_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr2_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr2_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr2_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr2_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr2_label16.config(bg="yellow")
+
+        if gpr == "11":
+            gpr3_label6.config(bg="yellow")
+            if (ea[8] == "1"):
+                gpr3_label9.config(bg="yellow")
+            if (ea[9] == "1"):
+                gpr3_label10.config(bg="yellow")
+            if (ea[10] == "1"):
+                gpr3_label11.config(bg="yellow")
+            if (ea[11] == "1"):
+                gpr3_label12.config(bg="yellow")
+            if (ea[12] == "1"):
+                gpr3_label13.config(bg="yellow")
+            if (ea[13] == "1"):
+                gpr3_label14.config(bg="yellow")
+            if (ea[14] == "1"):
+                gpr3_label15.config(bg="yellow")
+            if (ea[15] == "1"):
+                gpr3_label16.config(bg="yellow")
+
+    else:
+        print("Wrong instruction")
+
+
+
+
 
 
 load_btn = ttk.Button(bottom_btn_panel, text='Load', command=load_callback, width=6)
@@ -877,6 +1278,210 @@ load_btn.grid(column=2, row=1, padx=5, pady=10)
 
 # Init Button and Callback
 def init_callback():
+    with open("ipl.txt", "r") as f:
+        data = f.read()
+        lst = data.split()
+        addr = []
+        inst = []
+        print(lst)
+
+        addr= [int(x,16) for x in lst]
+        print(addr)
+        addr = [(bin(y)[2:]).zfill(16) for y in addr]
+        print(addr)
+
+
+
+
+        #Display PC with address
+        if(addr[0][15]=="1"):
+            pc_label12.config(bg="yellow")
+        if (addr[0][14] == "1"):
+            pc_label11.config(bg="yellow")
+        if (addr[0][13] == "1"):
+            pc_label10.config(bg="yellow")
+        if (addr[0][12] == "1"):
+            pc_label9.config(bg="yellow")
+        if (addr[0][11] == "1"):
+            pc_label8.config(bg="yellow")
+        if (addr[0][10] == "1"):
+            pc_label7.config(bg="yellow")
+        if (addr[0][9] == "1"):
+            pc_label6.config(bg="yellow")
+        if (addr[0][8] == "1"):
+            pc_label5.config(bg="yellow")
+        if (addr[0][7] == "1"):
+            pc_label4.config(bg="yellow")
+        if (addr[0][6] == "1"):
+            pc_label3.config(bg="yellow")
+        if (addr[0][5] == "1"):
+            pc_label2.config(bg="yellow")
+        if (addr[0][4] == "1"):
+            pc_label1.config(bg="yellow")
+
+        #Display MAR
+
+        if (addr[0][15] == "1"):
+            mar_label12.config(bg="yellow")
+        if (addr[0][14] == "1"):
+            mar_label11.config(bg="yellow")
+        if (addr[0][13] == "1"):
+            mar_label10.config(bg="yellow")
+        if (addr[0][12] == "1"):
+            mar_label9.config(bg="yellow")
+        if (addr[0][11] == "1"):
+            mar_label8.config(bg="yellow")
+        if (addr[0][10] == "1"):
+            mar_label7.config(bg="yellow")
+        if (addr[0][9] == "1"):
+            mar_label6.config(bg="yellow")
+        if (addr[0][8] == "1"):
+            mar_label5.config(bg="yellow")
+        if (addr[0][7] == "1"):
+            mar_label4.config(bg="yellow")
+        if (addr[0][6] == "1"):
+            mar_label3.config(bg="yellow")
+        if (addr[0][5] == "1"):
+            mar_label2.config(bg="yellow")
+        if (addr[0][4] == "1"):
+            mar_label1.config(bg="yellow")
+
+        #MBR is what is inside MAR so next location of addr
+        if (addr[1][15] == "1"):
+            mbr_label16.config(bg="yellow")
+        if (addr[1][14] == "1"):
+            mbr_label15.config(bg="yellow")
+        if (addr[1][13] == "1"):
+            mbr_label14.config(bg="yellow")
+        if (addr[1][12] == "1"):
+            mbr_label13.config(bg="yellow")
+        if (addr[1][11] == "1"):
+            mbr_label12.config(bg="yellow")
+        if (addr[1][10] == "1"):
+            mbr_label11.config(bg="yellow")
+        if (addr[1][9] == "1"):
+            mbr_label10.config(bg="yellow")
+        if (addr[1][8] == "1"):
+            mbr_label9.config(bg="yellow")
+        if (addr[1][7] == "1"):
+            mbr_label8.config(bg="yellow")
+        if (addr[1][6] == "1"):
+            mbr_label7.config(bg="yellow")
+        if (addr[1][5] == "1"):
+            mbr_label6.config(bg="yellow")
+        if (addr[1][4] == "1"):
+            mbr_label5.config(bg="yellow")
+        if (addr[1][3] == "1"):
+            mbr_label4.config(bg="yellow")
+        if (addr[1][2] == "1"):
+            mbr_label3.config(bg="yellow")
+        if (addr[1][1] == "1"):
+            mbr_label2.config(bg="yellow")
+        if (addr[1][0] == "1"):
+            mbr_label1.config(bg="yellow")
+
+        #IR takes what is in MBR
+
+        if (addr[1][15] == "1"):
+            ir_label16.config(bg="yellow")
+        if (addr[1][14] == "1"):
+            ir_label15.config(bg="yellow")
+        if (addr[1][13] == "1"):
+            ir_label14.config(bg="yellow")
+        if (addr[1][12] == "1"):
+            ir_label13.config(bg="yellow")
+        if (addr[1][11] == "1"):
+            ir_label12.config(bg="yellow")
+        if (addr[1][10] == "1"):
+            ir_label11.config(bg="yellow")
+        if (addr[1][9] == "1"):
+            ir_label10.config(bg="yellow")
+        if (addr[1][8] == "1"):
+            ir_label9.config(bg="yellow")
+        if (addr[1][7] == "1"):
+            ir_label8.config(bg="yellow")
+        if (addr[1][6] == "1"):
+            ir_label7.config(bg="yellow")
+        if (addr[1][5] == "1"):
+            ir_label6.config(bg="yellow")
+        if (addr[1][4] == "1"):
+            ir_label5.config(bg="yellow")
+        if (addr[1][3] == "1"):
+            ir_label4.config(bg="yellow")
+        if (addr[1][2] == "1"):
+            ir_label3.config(bg="yellow")
+        if (addr[1][1] == "1"):
+            ir_label2.config(bg="yellow")
+        if (addr[1][0] == "1"):
+            ir_label1.config(bg="yellow")
+
+        opcode=addr[1][0]+addr[1][1]+addr[1][2]+addr[1][3]+addr[1][4]+addr[1][5]
+        gpr=addr[1][6]+addr[1][7]
+        ixr=addr[1][8]+addr[1][9]
+        i=addr[1][10]
+        addresse=addr[1][11]+addr[1][12]+addr[1][13]+addr[1][14]+addr[1][15]
+        #print (opcode)
+        if ixr == "00":
+            # Get the value stored in address
+            ea = addresse
+        elif ixr != "00":
+            sumb = int(ixr, 2) + int(addresse, 2)
+            ea = bin(sumb)[2:]
+            print(ea)
+            print(gpr)
+            #if i=="1":
+           # ea=[ea]
+        print(opcode)
+        if opcode=="000001":
+            #ldr instruction:
+            if gpr=="00":
+                #load content at address
+                gpr0_label1.config(bg="yellow")
+            elif gpr=="01":
+                #load content at address
+                gpr1_label1.config(bg="yellow")
+            elif gpr=="10":
+                #load content at address
+                gpr2_label1.config(bg="yellow")
+            elif gpr=="11":
+                #load content at address
+                gpr3_label1.config(bg="yellow")
+
+            elif opcode == "000010":
+                # str instruction:
+                pass
+
+            elif opcode == "000011":
+                # lda instruction:
+                pass
+            elif opcode == "101001":
+                # ldx instruction:
+                pass
+            elif opcode == "101010":
+                # stx instruction:
+                pass
+
+
+
+
+
+
+
+
+        #for i in lst:
+           # i = int(i,16)
+       # print(i)
+        #for j in addr:
+         #
+          #  print (inst)
+
+       # print(addr)
+          ##  addr.append(i)
+    #  else:
+    #     inst[i]=lst[i]
+    # print("address list", addr)
+    # print("instruction list", inst)
+
     print("init button clicked")
     # do something
 
@@ -914,11 +1519,8 @@ def halt():
         run_light_label.config(bg='red')
 
     '''
-
     TODO
     Halt functionality
-
-
     '''
 
 
