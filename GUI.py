@@ -923,13 +923,13 @@ class Window:
         load_btn = ttk.Button(bottom_btn_panel, text='Load', command=load_callback, width=6)
         load_btn.grid(column=2, row=1, padx=5, pady=10)
 
-        # Init Button and Callback
-        def init_callback():
-            print("init button clicked")
+        # ipl Button and Callback
+        def ipl_callback():
+            print("ipl button clicked")
             self.func_ipl(pc, mem)
 
-        init_btn = tk.Button(bottom_btn_panel, text='Init', command=init_callback, width=6, bg='red')
-        init_btn.grid(column=3, row=1, padx=5, pady=10)
+        ipl_btn = tk.Button(bottom_btn_panel, text='IPL', command=ipl_callback, width=6, bg='red')
+        ipl_btn.grid(column=3, row=1, padx=5, pady=10)
 
         # SS (Single Step) button and Callback
         def ss_callback():
