@@ -4,6 +4,7 @@ from tkinter import ttk
 from registers import *
 from memory import *
 from Instruction import *
+import sys, os
 
 
 class Window:
@@ -1266,7 +1267,7 @@ class Window:
         self.reset()
         file_dir = './ipl.txt'
         try:
-            with open(file_dir, 'r') as f:
+            with open(resource_path(file_dir), 'r') as f:
                 lines = f.readlines()
             f.close()
         except FileNotFoundError:
@@ -1445,3 +1446,14 @@ class Window:
             self.refresh_mem_info()
             print('MAR = ' + str(mar.get_value()) + '\n')
     #   END: func_st_plus
+
+def resource_path(relative_path):
+    """ Get the absolute path to the resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+#   END: resource_path
