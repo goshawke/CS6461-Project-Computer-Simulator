@@ -1,0 +1,49 @@
+0001 0064 # data used in X1
+0002 0020 # data used in X2
+# input and store
+0006 8441
+0007 8482
+0008 0740
+0009 0b41
+000a 0555
+000b 1541
+000c 0956
+000d c400
+000e 0876
+000f c801
+0010 3b09
+0011 c400
+0012 0854
+0013 c801
+# addressing and subtraction
+0014 0740
+0015 0b41
+0016 0654
+0017 0555
+0018 1541
+0019 0956
+001a 1676
+001b 291d
+001c 2c1f
+# swtich
+001d 0676
+001e 1654
+# get min distance
+001f 0a57
+0020 1658
+0021 2983
+0022 2c87
+# store closest one
+0023 0657
+0024 0a58
+0025 0676
+0026 0a59
+# LOOP
+0027 3b15
+0028 0459
+0029 c801
+002a 0000
+
+0064 0014 # input number amount
+0079 00dc # initialize value for addressing
+007c ffff # min distance
