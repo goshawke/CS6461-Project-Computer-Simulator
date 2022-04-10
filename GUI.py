@@ -74,9 +74,9 @@ class Window:
         """This function sets the layout of the window"""
         # GUI setting para
         win_title = 'Computer Simulator'
-        win_size = '1600x900'
+        win_size = '1200x600'
         window_width = 1200
-        window_height = 800
+        window_height = 750
         win_color = '#0096c7'
         instruction_btn_width = 5
         interact_btn_width = 10
@@ -1035,6 +1035,9 @@ class Window:
 
         def reset_callback():
             print("reset button clicked")
+            self.change_btn_state(True)
+
+            self.reset()
             self.reset()
 
         reset_btn = ttk.Button(bottom_btn_panel, text='Reset', command=reset_callback, width=6)
@@ -1052,6 +1055,7 @@ class Window:
 
         self.refresh_reg_info()
         self.refresh_instruction_info()
+        self.refresh_sys_info()
         self.sys.reset()
 
         self.run_light_label.config(bg="black")
