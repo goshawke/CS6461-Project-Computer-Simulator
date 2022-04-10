@@ -74,9 +74,9 @@ class Window:
         """This function sets the layout of the window"""
         # GUI setting para
         win_title = 'Computer Simulator'
-        win_size = '1200x600'
+        win_size = '1200x650'
         window_width = 1200
-        window_height = 750
+        window_height = 650
         win_color = '#0096c7'
         instruction_btn_width = 5
         interact_btn_width = 10
@@ -92,18 +92,18 @@ class Window:
         self.master.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
         self.master.minsize(window_width, window_height)
         self.master["bg"] = win_color
-        self.master.resizable(False, False)
+        self.master.resizable(True, True)
 
         # -----------------------------START: TOP PANEL --------------------------------#
-        self.op_panel = tk.Frame(self.master, height=600, width=1200, bg='#0096c7')
+        self.op_panel = tk.Frame(self.master, height=100, width=1200, bg='#0096c7')
         self.op_panel.pack(expand=True, side='top', fill='both', padx=5, pady=5)
 
         # ------------------------------START: GPR PANEL ---------------------------#
 
-        self.gpr_panel = ttk.Frame(self.op_panel, height=50, width=33)
+        self.gpr_panel = ttk.Frame(self.op_panel, height=25, width=50)
         self.gpr_panel.config(style='new.TFrame')
 
-        self.gpr_panel.grid(column=0, row=0, padx=35, pady=[50, 25])
+        self.gpr_panel.grid(column=0, row=0, padx=35, pady=[15, 25])
 
         self.gpr_panel.rowconfigure(0, weight=1)
         self.gpr_panel.rowconfigure(1, weight=1)
@@ -323,10 +323,10 @@ class Window:
         # -----------------------END: GPR PANEL-------------------------------------#
         # ------------------------------START: IXR PANEL ---------------------------#
 
-        self.ixr_panel = ttk.Frame(self.op_panel, height=50, width=33)
+        self.ixr_panel = ttk.Frame(self.op_panel, height=30, width=33)
         self.ixr_panel.config(style='new.TFrame')
 
-        self.ixr_panel.grid(column=0, row=1, padx=35, pady=20, sticky= tkinter.N)
+        self.ixr_panel.grid(column=0, row=1, padx=15, pady=10, sticky= tkinter.N)
 
         self.ixr_panel.rowconfigure(0, weight=1)
         self.ixr_panel.rowconfigure(1, weight=1)
@@ -502,10 +502,10 @@ class Window:
 
         # ------------------------------START: RIGHT PANEL ---------------------------#
 
-        self.right_panel = ttk.Frame(self.op_panel, height=50, width=33)
+        self.right_panel = ttk.Frame(self.op_panel, height=33, width=33)
         self.right_panel.config(style='new.TFrame')
 
-        self.right_panel.grid(column=1, row=0, padx=[100, 20], pady=[77, 20], sticky=tk.E)
+        self.right_panel.grid(column=1, row=0, padx=[100, 20], pady=[15, 15], sticky=tk.E)
 
         self.right_panel.rowconfigure(0, weight=1)
         self.right_panel.rowconfigure(1, weight=1)
@@ -731,10 +731,10 @@ class Window:
             # -----------------------END: RIGHT PANEL-------------------------------------#
 
             # -----------------------START: I/O PANEL-----------------------------------#
-        self.io_panel = ttk.Frame(self.op_panel, height=50, width=33)
+        self.io_panel = ttk.Frame(self.op_panel, height=33, width=33)
         self.io_panel.config(style='new.TFrame')
 
-        self.io_panel.grid(column=1, row=1, padx=[50, 20], pady=[21, 10], sticky=tk.E)
+        self.io_panel.grid(column=1, row=1, padx=[50, 20], pady=[5, 5], sticky=tk.E)
 
         # label
         self.input_label = ttk.Label(self.io_panel, text="INPUT", anchor='c')
@@ -755,9 +755,9 @@ class Window:
         # -----------------------------END TOP PANEL -----------------------------------#
 
         # -----------------------------START: BOTTOM PANEL -----------------------------#
-        bottom_panel = tk.Frame(self.master, height=200, width=1200)
+        bottom_panel = tk.Frame(self.master, height=50, width=100)
         bottom_panel.config(bg='#0096c7')
-        bottom_panel.pack(expand=True, side='bottom', fill='both', padx=60, pady=5)
+        bottom_panel.pack(expand=True, side='top', fill='both', padx=15, pady=5)
 
         # ----------------------------START: OPERATION PANEL--------------------------- #
         # Since the frame is tkk.Frame NOT tk.Frame, we have to use tkk.Style to change the background color
@@ -937,10 +937,10 @@ class Window:
 
         # ----------------------------START: INSTRUCTION TESTING PANEL -------------#
 
-        self.testing_panel = ttk.Frame(bottom_panel, height=50, width=100)
+        self.testing_panel = ttk.Frame(bottom_panel, height=15, width=50)
         self.testing_panel.config(style='new.TFrame')
 
-        self.testing_panel.grid(column=0, row=1, padx=5, sticky=tk.S)
+        self.testing_panel.grid(column=0, row=0, padx=5, sticky=tk.N)
 
         test_entry = Entry(self.testing_panel, textvariable=self.test_ins_input)
         test_entry.grid(row=0,column=0,columnspan=3,sticky=W+E, padx=[10, 5])
@@ -953,10 +953,10 @@ class Window:
         s = ttk.Style()
         s.configure('new.TFrame', background='#48cae4')
 
-        bottom_btn_panel = ttk.Frame(bottom_panel, height=50, width=100)
+        bottom_btn_panel = ttk.Frame(bottom_panel, height=50, width=50)
         bottom_btn_panel.config(style='new.TFrame')
 
-        bottom_btn_panel.grid(column=5, row=0, padx=50)
+        bottom_btn_panel.grid(column=5, row=0, padx=200, rowspan=1, sticky=tk.E)
 
         bottom_btn_panel.rowconfigure(0, weight=1)
         bottom_btn_panel.rowconfigure(1, weight=1)
