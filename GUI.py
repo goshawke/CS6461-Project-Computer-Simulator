@@ -60,9 +60,6 @@ class Window:
         self.txt_value_Indirect = StringVar()
         self.txt_value_Address = StringVar()
 
-        # not sure if i need this
-        # self.refresh_instruction_info()
-
         # Test Instruction Input
         self.test_ins_input = StringVar()
         self.test_ins_input.set('')
@@ -953,18 +950,18 @@ class Window:
         s = ttk.Style()
         s.configure('new.TFrame', background='#48cae4')
 
-        bottom_btn_panel = ttk.Frame(bottom_panel, height=50, width=50)
-        bottom_btn_panel.config(style='new.TFrame')
+        self.bottom_btn_panel = ttk.Frame(bottom_panel, height=50, width=50)
+        self.bottom_btn_panel.config(style='new.TFrame')
 
-        bottom_btn_panel.grid(column=5, row=0, padx=200, rowspan=1, sticky=tk.E)
+        self.bottom_btn_panel.grid(column=5, row=0, padx=200, rowspan=1, sticky=tk.E)
 
-        bottom_btn_panel.rowconfigure(0, weight=1)
-        bottom_btn_panel.rowconfigure(1, weight=1)
+        self.bottom_btn_panel.rowconfigure(0, weight=1)
+        self.bottom_btn_panel.rowconfigure(1, weight=1)
 
-        bottom_btn_panel.columnconfigure(0, weight=1)
-        bottom_btn_panel.columnconfigure(1, weight=1)
-        bottom_btn_panel.columnconfigure(2, weight=1)
-        bottom_btn_panel.columnconfigure(3, weight=1)
+        self.bottom_btn_panel.columnconfigure(0, weight=1)
+        self.bottom_btn_panel.columnconfigure(1, weight=1)
+        self.bottom_btn_panel.columnconfigure(2, weight=1)
+        self.bottom_btn_panel.columnconfigure(3, weight=1)
 
         # Store Button and Callback
         def store_callback():
@@ -972,7 +969,7 @@ class Window:
             self.func_store()
             # do something
 
-        store_btn = ttk.Button(bottom_btn_panel, text='Store', command=store_callback, width=6)
+        store_btn = ttk.Button(self.bottom_btn_panel, text='Store', command=store_callback, width=6)
         store_btn.grid(column=0, row=1, padx=5, pady=10)
 
         # St+ Button and Callback
@@ -980,16 +977,16 @@ class Window:
             print("St+ button clicked")
             self.func_st_plus()
 
-        stPlus_btn = ttk.Button(bottom_btn_panel, text='St+', command=stPlus_callback, width=6)
+        stPlus_btn = ttk.Button(self.bottom_btn_panel, text='St+', command=stPlus_callback, width=6)
         stPlus_btn.grid(column=1, row=1, padx=5, pady=10)
 
         # Load Button and Callback
         def load_callback():
             print("load button clicked")
             self.func_load()
-\
 
-        load_btn = ttk.Button(bottom_btn_panel, text='Load', command=load_callback, width=6)
+
+        load_btn = ttk.Button(self.bottom_btn_panel, text='Load', command=load_callback, width=6)
         load_btn.grid(column=2, row=1, padx=5, pady=10)
 
         # ipl Button and Callback
@@ -997,7 +994,7 @@ class Window:
             print("ipl button clicked")
             self.func_ipl()
 
-        ipl_btn = tk.Button(bottom_btn_panel, text='IPL', command=ipl_callback, width=6, bg='red')
+        ipl_btn = tk.Button(self.bottom_btn_panel, text='IPL', command=ipl_callback, width=6, bg='red')
         ipl_btn.grid(column=3, row=1, padx=5, pady=10)
 
         # SS (Single Step) button and Callback
@@ -1005,21 +1002,21 @@ class Window:
             print("SS button clicked")
             self.func_ss(True)
 
-        ss_btn = ttk.Button(bottom_btn_panel, text='SS', command=ss_callback, width=6)
+        ss_btn = ttk.Button(self.bottom_btn_panel, text='SS', command=ss_callback, width=6)
         ss_btn.grid(column=0, row=2, columnspan=1, padx=5, pady=20, sticky=tk.W)
 
         # Run light
-        run_label = ttk.Label(bottom_btn_panel, text='Run', width=4)
+        run_label = ttk.Label(self.bottom_btn_panel, text='Run', width=4)
         run_label.grid(column=2, row=3, columnspan=1, padx=5, pady=10, sticky=tk.E)
 
-        self.run_light_label = tk.Label(bottom_btn_panel, text='  ', width=2, bg="black")
+        self.run_light_label = tk.Label(self.bottom_btn_panel, text='  ', width=2, bg="black")
         self.run_light_label.grid(column=3, row=3, columnspan=1, padx=2, pady=10, sticky=tk.W)
 
         # Halt
-        halt_label = ttk.Label(bottom_btn_panel, text='Halt', width=4)
+        halt_label = ttk.Label(self.bottom_btn_panel, text='Halt', width=4)
         halt_label.grid(column=0, row=3, columnspan=1, padx=5, pady=10, sticky=tk.E)
 
-        self.halt_light_label = tk.Label(bottom_btn_panel, text='  ', width=2, bg="black")
+        self.halt_light_label = tk.Label(self.bottom_btn_panel, text='  ', width=2, bg="black")
         self.halt_light_label.grid(column=1, row=3, columnspan=1, padx=2, pady=10, sticky=tk.W)
 
         # Run Button and Callback
@@ -1029,7 +1026,7 @@ class Window:
             self.halt_light_label.config(bg='black')
             self.func_run()
 
-        run_btn = ttk.Button(bottom_btn_panel, text='Run', command=run_callback, width=6)
+        run_btn = ttk.Button(self.bottom_btn_panel, text='Run', command=run_callback, width=6)
         run_btn.grid(column=1, row=2, columnspan=1, padx=5, pady=20, sticky=tk.S)
 
 
@@ -1040,7 +1037,7 @@ class Window:
             self.reset()
             self.reset()
 
-        reset_btn = ttk.Button(bottom_btn_panel, text='Reset', command=reset_callback, width=6)
+        reset_btn = ttk.Button(self.bottom_btn_panel, text='Reset', command=reset_callback, width=6)
         reset_btn.grid(column=2, row=2, columnspan=1, padx=5, pady=20, sticky=tk.E)
 
         # ----------------------------END: BOTTOM BTN PANEL---------------------------- #
@@ -1053,10 +1050,17 @@ class Window:
     def reset(self):
         """This function resets the entire system"""
 
+        # new
+        self.sys.reset()
+        # new
+
         self.refresh_reg_info()
         self.refresh_instruction_info()
         self.refresh_sys_info()
-        self.sys.reset()
+
+        self.out = ScrolledText(self.io_panel, width=30, height=10, state='disabled')
+        self.out.grid(row=3, column=1, sticky=W + E, columnspan=2)
+
 
         self.run_light_label.config(bg="black")
         self.halt_light_label.config(bg="black")
