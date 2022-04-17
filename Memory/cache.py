@@ -1,74 +1,35 @@
 
-from Memory.memory import *
+class Memory:
+    """This is the class for Memory"""
 
-class CacheLine:
-    def __init__(self, tag='', value=''):
-        self.tag = tag
-        self.value = value
-
-class Cache:
-    def __init__(self, size=16):
-        self.size = size
-        self.cache_content = []
-        self.mem = Memory()
-        self.msg = ''
+    def __init__(self):
+        self.size = 2048
+        self.memory = ['0'] * self.size
 
     def reset(self):
-        self.cache_content = []
-        self.mem = Memory()
-        self.msg = ''
+        self.memory = ['0'] * self.size
 
-    def find(self, add: int):
-        """This function checks if tag is in the cache"""
-        for line in self.cache_content:
-            if line.tag == add:
-                return True
-        return False
+    def memory_expansion(self):
+        """Expand memory size to 4096"""
+        self.size = 4096
+        self.memory = ['0'] * self.size
 
-    def __push(self, line: CacheLine):
-        """This function push new cache line into Cache
-        it obeys FIFO
+    def get_from_memory(self, address):
+        return self.memory[address]
+
+    def set_to_memory(self, address, value):
+        self.memory[address] = value
+
+    def get_value(self, address):
+        """This function is for Step_info
+        :param address: the address to request data
+        :return: string type of decimal values
         """
-        if len(self.cache_content) == self.size:
-            self.cache_content.pop(0)
-        self.cache_content.append(line)
-
-    def get(self, add: int):
-        """This function looks for tag in cache.
-        Return value from cache if tag exists,
-        push new line into cache and return from memory if it doesn't
-        """
-        for line in self.cache_content:
-            if line.tag == add:
-                self.msg = 'Cache[tag=' + str(add) + '] :\t\t\t' + str(int(line.value)) + '\n'
-                return line.value
-        value = self.mem.get_from_memory(add)
-        self.msg = 'MEM[' + str(add) + '] :\t\t\t' + str(int(value)) + '\n\n'
-        new_line = CacheLine(add, value)
-        self.__push(new_line)
-        self.msg += 'Not in Cache, push into Cache\n\n'
-        return value
-
-    def set(self, add: int, value: str):
-        """This function looks for tag in cache.
-        set both memory and cache if tag exists,
-        set memory and push the line into cache if it doesn't
-        """
-        for line in self.cache_content:
-            if line.tag == add:
-                line.value = value
-                self.msg = 'Update Cache[tag=' + str(add) + ']\n'
-                self.mem.set_to_memory(add, value)
-                self.msg += 'MEM[' + str(add) + '] :\t\t\t' + str(int(value)) + '\n\n'
-                return
-        new_line = CacheLine(add, value)
-        self.__push(new_line)
-        self.msg = 'Not in Cache, push into Cache\n'
-        self.mem.set_to_memory(add, value)
-        self.msg += 'MEM[' + str(add) + '] :\t\t\t' + str(int(value)) + '\n\n'
+        address = int(address, 2)
+        return str(int(self.memory[address], 2))
 
     def print_out(self):
-        word = '\n-------------CACHE---------------\n'
-        for line in self.cache_content:
-            word += str(line.tag) + ':\t' + str(int(line.value)) + '\n'
+        word = '\n-------------MEMORY--------------\n'
+        for i, line in enumerate(self.memory):
+            word += str(i) + ':\t' + str(int(line)) + '\n'
         return word
