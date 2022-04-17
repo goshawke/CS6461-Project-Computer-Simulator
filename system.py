@@ -9,7 +9,7 @@ from ioDevice import *
 import sys, os
 
 class System:
-    def __init__(self, file_dir, pc_default):
+    def __init__(self, file_dir, pc_default, text_dir=None):
         # initialize cache
         self.cache = Cache()
         # initialize an instruction object
@@ -21,6 +21,7 @@ class System:
         self.ir = IR()
         self.mfr = MFR()
         self.cc = CC()
+
         self.gpr0 = GPR(label='GPR0')
         self.gpr1 = GPR(label='GPR1')
         self.gpr2 = GPR(label='GPR2')
@@ -33,6 +34,7 @@ class System:
         # initialize io devices
         self.keyboard = Keyboard()
         self.printer = Printer()
+        self.reader = Reader()
 
         # for refreshing
         self.registers = [self.gpr0, self.gpr1, self.gpr2, self.gpr3, self.ixr1, self.ixr2, self.ixr3,
@@ -43,6 +45,8 @@ class System:
 
         self.file_dir = file_dir
         self.pc_default = pc_default
+        self.text_dir = text_dir
+        self.content = None
 
     def reset(self):
         """This function resets the system
@@ -55,20 +59,15 @@ class System:
         self.alu.reset()
         self.keyboard.reset()
         self.printer.reset()
+        self.reader.reset()
 
-        # TODO - can we delete this? Only has one usage and we have a work-around, GUI line 1274ish
-    '''    def set_instruction(self, index):
-        """This function sets the bit of instruction into 1 or 0
-        It's called in GUI.func_instruction
-        """
-        temp = list(self.ins.value)
-        if temp[index] == '1':
-            temp[index] = '0'
-        else:
-            temp[index] = '1'
-        self.ins.value = ''.join(temp)
-        self.ins.update()
-    '''
+
+        # new
+        # output.configure(state='normal')
+        # output.delete(1.0, END)
+        # output.configure(state='disabled')
+        # new
+
     def reg_load_ins(self, reg: Register):
         """This function loads register with the value of the instruction
         It's called in GUI.func_reg_load
@@ -102,8 +101,6 @@ class System:
         print('MAR++:\n')
         self.mar.add_10(1)
         print(f'MAR = {str(int(self.mar.value))}')
-
-
 
 
     def load_file(self):
@@ -212,7 +209,7 @@ class System:
             gpr = self.gprs[int(word.gpr_index, 2)]
             ixr = self.ixrs[int(word.ixr_index,2)-1]
             immed = word.address
-            devid = word.address
+            devid = int(word.address, 2)
         # LDR
         if op == 1:
             # MBR <- MEM[MAR]
@@ -433,7 +430,7 @@ class System:
             print(ry.label + ' :\t\t\t' + ry.value + '\n')
             # IRR = Rx & Ry
             irr.set_value(self.alu.logic_cal('&', rx.value, ry.value))
-            txt.insert(INSERT,'IRR = Rx & Ry :\t\t\t' + irr.value.zfill(irr.size) + '\n')
+            print('IRR = Rx & Ry :\t\t\t' + irr.value.zfill(irr.size) + '\n')
             # Rx = IRR
             rx.set_value(irr.value)
             print(rx.label + ' <- IRR\t\t\t' + rx.value + '\n\n')
@@ -443,7 +440,7 @@ class System:
             print(ry.label + ' :\t\t\t' + ry.value + '\n')
             # IRR = Rx | Ry
             irr.set_value(self.alu.logic_cal('|', rx.value, ry.value))
-            txt.insert(INSERT,'IRR = Rx | Ry :\t\t\t' + irr.value.zfill(irr.size) + '\n')
+            print('IRR = Rx | Ry :\t\t\t' + irr.value.zfill(irr.size) + '\n')
             # Rx = IRR
             rx.set_value(irr.value)
             print(rx.label + ' <- IRR\t\t\t' + rx.value + '\n\n')
@@ -452,10 +449,37 @@ class System:
             print(rx.label + ' :\t\t\t' + rx.value + '\n')
             # IRR = ~ Rx
             irr.set_value(self.alu.logic_cal('~', rx.value))
-            txt.insert(INSERT,'IRR = NOT Rx  :\t\t\t' + irr.value.zfill(irr.size) + '\n')
+            print('IRR = NOT Rx  :\t\t\t' + irr.value.zfill(irr.size) + '\n')
             # Rx = IRR
             rx.set_value(irr.value)
             print(rx.label + ' <- IRR\t\t\t' + rx.value + '\n\n')
+        
+        # new
+        # Trap
+        elif op == 24:
+            # trap_code = int(word.trap_code, 2)
+            # self.pc.next()
+            # self.cache.set(2, self.pc.value)
+            # print( self.cache.msg)
+            # self.pc.value = self.cache.get(0)
+            # print( f'Address of Routine Table : {self.pc.get_value()}\n')
+            # self.pc.add_10(trap_code)
+            # print( f'Address of Routine {trap_code} :\t\t\tPC = {self.pc.get_value()}\n')
+            # self.pc.value = self.cache.get(int(self.pc.value, 2))
+            # print( f'Set to address :\t\t\t PC = {self.pc.get_value()}\n\n')
+            self.reader.read_file(self.text_dir)
+            self.content = list(self.reader.content[0])
+            for i, character in enumerate(self.content):
+                self.cache.set(1100+i, bin(ord(character))[2:])
+            self.printer.write_paragraph(self.reader.content[0])
+            output.configure(state='normal')
+            output.delete(1.0, END)
+            output.insert(INSERT, self.printer.read_content())
+            output.yview_moveto('1.0')
+            output.configure(state='disabled')
+            self.pc.next()
+        # new
+        
         # SRC: c(R) is shifted left(L/R=1) or right(L/R=0) either logically(A/L=1) or arithmetically(A/L=0)
         elif op == 25:
             lr = 'left' if l_r == 1 else 'right'
@@ -496,23 +520,46 @@ class System:
             print(self.cache.msg)
         # IN: R[GPR] <- In
         elif op == 49:
-            print('Please input a number')
-            if self.keyboard.write(input):
-                gpr.reset()
-                gpr.add_10(self.keyboard.read())
-                print(gpr.label + ' <- Input :\t\t\t' + gpr.label + ' = ' + gpr.get_value() + '\n')
-            else:
-                print('Invalid Input\n')
-                gpr.reset()
+            # keyboard
+            if devid == 0:
+                print( 'Please input')
+                if self.keyboard.write(input):
+                    gpr.reset()
+                    character = self.keyboard.read()
+                    print(character)
+                    gpr.add_10(ord(character))
+                    print(gpr.label + f' <- {character} :\t\t\t' + gpr.label + ' = ' + gpr.get_value() + '\n')
+                else:
+                    print( 'Invalid Input\n')
+                    gpr.reset()
+            elif devid == 2:
+                character = self.content.pop(0)
+                print(character)
+                print( f"Read '{character}'\n")
+                gpr.set_value(bin(ord(character))[2:])
+                print( f'{gpr.label} <- Read :\t\t\t{gpr.value}\n')
         # OUT: Out <- R[GPR]
         elif op == 50:
-            self.printer.write_line(gpr.get_value())
+            self.printer.write_line(str(int(gpr.get_value(), 2)))
             output.configure(state='normal')
             output.delete(1.0, END)
             output.insert(INSERT, self.printer.read_content())
             output.yview_moveto('1.0')
             output.configure(state='disabled')
             print('Output <- '+ gpr.label + ' :\t\t\tOutput ' + self.printer.read_line() +  '\n')
+
+        # new
+        # CHK
+        elif op == 51:
+            # reader: check if file is existed
+            if devid == 2:
+                self.reader.reset()
+                self.reader.read_file(self.text_dir)
+                self.content = list(self.reader.content[0])
+                print(self.reader.msg)
+                gpr.set_value(self.reader.flag)
+                print( f'{gpr.label} set by status :\t\t\t{gpr.value}')
+        # new
 
     def single_step(self, input, output):
         """This function implements the single step
@@ -528,12 +575,12 @@ class System:
             print('Program is done\n\n')
             return 'DONE'
         # EA Compute: for some operation x, i are ignored, which means no EA needed
-        if op not in [6, 7, 13, 16, 17, 18, 19, 20, 21, 25, 26, 49, 50]:
+        if op not in [6, 7, 13, 16, 17, 18, 19, 20, 21, 25, 26, 49, 50, 51]:
             self.__locate(word)
         # Excute and Deposit
         self.__execute_deposit(word, input, output)
         # PC++: for some operation, pc++ is not needed
-        if op not in [8,9,10,11,12,14,15]:
+        if op not in [8,9,10,11,12,14,15,24]:
             self.pc.next()
             print('PC++')
 
@@ -547,7 +594,7 @@ class System:
         print(msg)
         if msg == 'Decoding Complete\n\n':
             # for some operation x, i are ignored, which means no EA needed
-            if int(i.opcode,2) not in [6, 7, 13, 16, 17, 18, 19, 20, 21, 25, 26, 49, 50]:
+            if int(i.opcode,2) not in [6, 7, 13, 16, 17, 18, 19, 20, 21, 24, 25, 26, 49, 50, 51]:
                 self.__locate(i)
             self.__execute_deposit(i, input, output)
 
