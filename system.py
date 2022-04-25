@@ -521,7 +521,18 @@ class System:
         # IN: R[GPR] <- In
         elif op == 49:
             # keyboard
-            if devid == 0:
+            # For Program 1
+            print('Please input a number')
+            if self.keyboard.write(input):
+                gpr.reset()
+                gpr.add_10(int(self.keyboard.read()))
+                print(gpr.label + ' <- Input :\t\t\t' + gpr.label + ' = ' + gpr.get_value() + '\n')
+            else:
+                print('Invalid Input\n')
+                gpr.reset()
+
+            # For Program 2
+            """ if devid == 0:
                 print( 'Please input')
                 if self.keyboard.write(input):
                     gpr.reset()
@@ -537,10 +548,15 @@ class System:
                 print(character)
                 print( f"Read '{character}'\n")
                 gpr.set_value(bin(ord(character))[2:])
-                print( f'{gpr.label} <- Read :\t\t\t{gpr.value}\n')
+                print( f'{gpr.label} <- Read :\t\t\t{gpr.value}\n')"""
         # OUT: Out <- R[GPR]
         elif op == 50:
-            self.printer.write_line(str(int(gpr.get_value(), 2)))
+            # For Program 1
+            self.printer.write_line(gpr.get_value())
+
+            # For Program 2
+            # self.printer.write_line(str(int(gpr.get_value(), 2)))
+
             output.configure(state='normal')
             output.delete(1.0, END)
             output.insert(INSERT, self.printer.read_content())

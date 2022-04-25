@@ -4,12 +4,12 @@ from system import System
 
 
 if __name__ == '__main__':
-    # file_dir = 'program1.txt'
-    # pc_default = 6
-
-    file_dir = "program2.txt"
-    text_dir = "text.txt"
+    file_dir = 'program1.txt'
     pc_default = 6
+
+    # file_dir = "program2.txt"
+    text_dir = "text.txt"
+    # pc_default = 6
 
     # file_dir = './Programs/program1.txt.txt'
     # pc_default = int('100',16)

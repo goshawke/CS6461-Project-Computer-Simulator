@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import ttk
 from CPU.registers import *
 import sys, os
+import random
 
 
 class Window:
@@ -1075,6 +1076,9 @@ class Window:
         content += self.cache.print_out()
         content += self.cache.mem.print_out()
         print(content)
+
+        num = random.randrange(0,2)
+        print(f"Branch Prediction Buffer: {num}")
     # END: refresh_sys_info
 
     def refresh_instruction_info(self):
